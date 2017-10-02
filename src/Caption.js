@@ -5,6 +5,7 @@ export default class Caption extends Component {
   static propTypes = {
     date: PropTypes.instanceOf(Date),
     months: PropTypes.arrayOf(PropTypes.string),
+    hideYear: PropTypes.bool,
     locale: PropTypes.string,
     localeUtils: PropTypes.object,
     onClick: PropTypes.func,
@@ -27,6 +28,7 @@ export default class Caption extends Component {
       classNames,
       date,
       months,
+      hideYear,
       locale,
       localeUtils,
       onClick,
@@ -35,7 +37,7 @@ export default class Caption extends Component {
       <div className={classNames.caption} role="heading">
         <div onClick={onClick}>
           {months
-            ? `${months[date.getMonth()]} ${date.getFullYear()}`
+            ? `${months[date.getMonth()]} ${!hideYear && date.getFullYear()}`
             : localeUtils.formatMonthTitle(date, locale)}
         </div>
       </div>
