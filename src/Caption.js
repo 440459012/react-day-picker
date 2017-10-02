@@ -37,7 +37,7 @@ export default class Caption extends Component {
       <div className={classNames.caption} role="heading">
         <div onClick={onClick}>
           {months
-            ? `${months[date.getMonth()]} ${!hideYear && date.getFullYear()}`
+            ? `${months[date.getMonth()]} ${hideYear ? '' : date.getFullYear()}`
             : localeUtils.formatMonthTitle(date, locale)}
         </div>
       </div>

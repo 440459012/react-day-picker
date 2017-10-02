@@ -23,6 +23,7 @@ export default class DayPicker extends Component {
     numberOfMonths: PropTypes.number,
     fromMonth: PropTypes.instanceOf(Date),
     toMonth: PropTypes.instanceOf(Date),
+    hideYear: PropTypes.bool,
     canChangeMonth: PropTypes.bool,
     reverseMonths: PropTypes.bool,
     pagedNavigation: PropTypes.bool,
@@ -128,6 +129,7 @@ export default class DayPicker extends Component {
     tabIndex: 0,
     initialMonth: new Date(),
     numberOfMonths: 1,
+    hideYear:false,
     labels: {
       previousMonth: 'Previous Month',
       nextMonth: 'Next Month',
@@ -143,7 +145,7 @@ export default class DayPicker extends Component {
     renderDay: day => day.getDate(),
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,
-    captionElement: <Caption classNames={classNames} />,
+    captionElement: <Caption classNames={classNames} hideYear={this.props.hideYear} />,
   };
 
   constructor(props) {
